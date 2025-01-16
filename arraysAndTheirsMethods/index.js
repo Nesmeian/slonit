@@ -1,4 +1,24 @@
 const arr = [1, 2, 3, 4, 5];
+function mySlice(arr, start, end) {
+  const result = [];
+  if (start === undefined) {
+    start = 0;
+  }
+  if (end === undefined) {
+    end = arr.length;
+  }
+  if (start < 0) {
+    start = Math.max(arr.length + start, 0);
+  }
+  if (end < 0) {
+    end = Math.max(arr.length + end, 0);
+  }
+  for (let i = start; i < end && i < arr.length; i++) {
+    result.push(arr[i]);
+  }
+  return result;
+}
+
 function myIndexOf(arr, item, from) {
   const searchPoint = from ? Number(from) : 0;
   if (searchPoint >= arr.length || searchPoint < 0) {
